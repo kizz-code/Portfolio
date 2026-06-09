@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Manager</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #FFF5E1; /* Vanilla */
+            color: #8B0000; /* Dark Red */
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #1C1C1C; /* Black */
+            color: #C0C0C0; /* Steel Grey */
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #FF4500; /* Bright Orange */
+            color: white;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+        }
+        .dark-mode header {
+            background-color: #333;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+        }
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+            background-color: white;
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode .container {
+            background-color: #2C2C2C;
+            color: #C0C0C0;
+        }
+        h2 {
+            font-weight: 500;
+            color: #FF4500; /* Bright Orange */
+        }
+        .dark-mode h2 {
+            color: #FFA500;
+        }
+        input, button, select {
+            margin: 10px 0;
+            padding: 10px;
+            width: 90%;
+            border: 1px solid #8B0000;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode input, .dark-mode button, .dark-mode select {
+            background-color: #333;
+            color: #C0C0C0;
+            border: 1px solid #555;
+        }
+        button {
+            background-color: #FF4500; /* Bright Orange */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .dark-mode button {
+            background-color: #555;
+        }
+        button:hover {
+            background-color: #B22222; /* Firebrick Red */
+        }
+        .dark-mode button:hover {
+            background-color: #777;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dark-mode li {
+            border-bottom: 1px solid #555;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #FF4500; /* Bright Orange */
+            color: white;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .dark-mode footer {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Budget Manager</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Help</a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2>Manage Your Budget</h2>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <h3>Total Balance: $<span id="balance">0</span></h3>
+        <h4>Net Income: $<span id="net-income">0</span></h4>
+        <h4>Expense Percentage: <span id="expense-percent">0%</span></h4>
+        <input type="text" id="desc" placeholder="Description">
+        <input type="number" id="amount" placeholder="Amount">
+        <select id="category">
+            <option value="Income">Income</option>
+            <option value="Food">Food</option>
+            <option value="Rent">Rent</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Other">Other</option>
+        </select>
+        <button onclick="addTransaction()">Add</button>
+        <h4>Transactions</h4>
+        <ul id="transactions"></ul>
+        <button onclick="exportData()">Export Data</button>
+    </div>
+    
+    <footer>
+        &copy; 2025 Budget Manager | <a href="#">Privacy</a> | <a href="#">Terms</a>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
